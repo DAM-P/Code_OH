@@ -24,7 +24,7 @@ export class PlayerState extends Component implements IState {
     }
 
     protected get stateTime(): number {
-        return Date.now() - this.stateStartTime;
+        return Date.now() - this.stateStartTime;//ºÁÃëÊı
     }
 
     onLoad() {

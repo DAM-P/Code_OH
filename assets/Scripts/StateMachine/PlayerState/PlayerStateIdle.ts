@@ -1,7 +1,9 @@
 import { _decorator, Component, Animation, Vec3, log, debug } from 'cc';
-// 导入接口
+
 import { PlayerState } from './PlayerState'
 import { PlayerStateRun } from './PlayerStateRun'
+import { PlayerStateJump } from './PlayerStateJump'
+import { PlayerStateRolling } from './PlayerStateRolling';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerStateIdle')
@@ -12,21 +14,27 @@ export class PlayerStateIdle extends PlayerState {
     public Enter() {
         super.Enter();
         this.currentSpeedX = Math.abs(this.player.moveSpeedX);
-        this.player.setVelocityY(0);
+        //this.player.setVelocityY(0);
     }
     private  moveTowards(current: number, target: number, maxDelta: number): number {
         if (Math.abs(target - current) <= maxDelta) {
             return target;
         }
-        console.log(current);
+        //console.log(current);
         return current + Math.sign(target - current) * maxDelta;
 
     }
 
     public LogicUpdate(dt:number) {
-      
+
         
-        if (this.input._touchStart) {
+        if (this.input._jumpStart&&this.player.GroundDetect.isGrounded) {
+            
+            this.input._jumpStart = false;
+            this.stateMachine.switchStateByType(PlayerStateJump);
+
+        }
+        if (!this.input.XisAbsoluteValueLess) {
             this.stateMachine.switchStateByType(PlayerStateRun);
         }
         //console.log(this.player.node.scale.x);
@@ -37,6 +45,11 @@ export class PlayerStateIdle extends PlayerState {
             this.player.setVelocityX(this.currentSpeedX );
   
         }
+
+        if (this.input._rollingStart) {
+            this.stateMachine.switchStateByType(PlayerStateRolling);
+        }
+        
        
         
     }

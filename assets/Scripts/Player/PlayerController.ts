@@ -1,5 +1,6 @@
 import { _decorator, Component, Node, Vec2, Vec3, Input, EventKeyboard, input, KeyCode,RigidBody2D, sp } from 'cc';
 import { PlayerInput } from '../Input/Input';
+import { GroundDetection} from './GroundDetection'
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -8,7 +9,8 @@ export class PlayerController extends Component {
 
     @property(Node)
     inputNode: Node | null = null;
-
+    @property(GroundDetection)
+    public GroundDetect: GroundDetection | null = null;
     rigidBody: RigidBody2D | null = null;
     input: PlayerInput | null = null;
 
@@ -68,12 +70,26 @@ export class PlayerController extends Component {
     }
 
     public Move(speed: number) {
-        
-        let AxisX = Math.sign(this.input.axis.x);
-        if (this.input._touchStart) {
-            this.node.scale = new Vec3(AxisX, 1, 0);
-        }
        
-        this.setVelocityX(speed * AxisX);
+
+        //console.log(this.input.axis.x);
+        if (!this.input.XisAbsoluteValueLess) {
+            this.node.scale = new Vec3(Math.sign(this.input.axis.x), 1, 0);
+            this.setVelocityX(speed * this.input.axis.x);
+            
+        }
+        
+        
     }
+    get isFalling(): boolean {
+        return this.rigidBody.linearVelocity.y<= 0;
+    }
+
+    private  isAbsoluteValueLess(number: number): boolean {
+        const threshold = Math.pow(10, -3);
+        return Math.abs(number) < threshold;
+    }
+
+
+
 }

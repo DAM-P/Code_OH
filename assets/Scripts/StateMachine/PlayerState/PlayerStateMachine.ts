@@ -14,6 +14,9 @@ export class PlayerStateMachine extends StateMachine {
     @property(Node)
     inputNode: Node | null = null;
 
+    @property(Node)
+    StateNode: Node | null = null;
+
     private animator: Animation | null = null;
     private input: any = null;
     private player: any = null;
@@ -26,6 +29,15 @@ export class PlayerStateMachine extends StateMachine {
         this.input = this.inputNode.getComponent(PlayerInput);
         this.player = this.node.getComponent(PlayerController);
 
+
+        const components = this.StateNode.getComponents(Component);
+        for (const component of components) {
+           
+            if (component instanceof PlayerState) {
+               
+                this.states.push(component);
+            }
+        }
         for (let state of this.states) {
             state.Initialize(this.animator, this, this.input, this.player);
             this.stateTable.set(state.constructor, state);

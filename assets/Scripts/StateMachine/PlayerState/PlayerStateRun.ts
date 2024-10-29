@@ -3,6 +3,8 @@ const { ccclass, property } = _decorator;
 
 import { PlayerState } from './PlayerState'
 import { PlayerStateIdle } from './PlayerStateIdle'
+import { PlayerStateJump } from './PlayerStateJump'
+import { PlayerStateRolling } from './PlayerStateRolling';
 @ccclass('PlayerStateRun')
 export class PlayerStateRun extends PlayerState {
     @property
@@ -26,13 +28,20 @@ export class PlayerStateRun extends PlayerState {
         return current + Math.sign(target - current) * maxDelta;
 
     }
-    public LogicUpdate(dt:number) {
+    public LogicUpdate(dt: number) {
+
+        if (this.input._jumpStart&&this.player.GroundDetect.isGrounded) {
+            this.input._jumpStart = false;
+            this.stateMachine.switchStateByType(PlayerStateJump);
+        }
        
         if (!this.input._touchStart) {
             
             this.stateMachine.switchStateByType(PlayerStateIdle);
         }
-
+        if (this.input._rollingStart) {
+            this.stateMachine.switchStateByType(PlayerStateRolling);
+        }
         
       //  console.log(this.currentSpeedX);
         this.currentSpeedX = this.moveTowards(this.currentSpeedX, this.speed, this.acceleration * dt);
