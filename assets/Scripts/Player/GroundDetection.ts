@@ -6,13 +6,17 @@ export class GroundDetection extends Component {
     public _isGrounded: boolean = false;
 
 
-    private GDposition: Vec3 = new Vec3(0, -20, 0);
+    private initialLocalPosition: Vec3 = new Vec3();
 
+    start() {
+        // 记录初始的本地位置
+        this.initialLocalPosition.set(this.node.getPosition());
+    }
 
     onEnable() {
-      
+
         const collider = this.getComponent(Collider2D);
-        
+
         if (collider) {
             collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
             collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
@@ -29,10 +33,11 @@ export class GroundDetection extends Component {
 
     private onBeginContact(selfCollider: Collider2D, otherCollider: Collider2D, contact: IPhysics2DContact) {
 
-       //console.log(otherCollider.node.layer);
-        if (otherCollider.node.layer == 1073741824 ) {
+        //console.log(otherCollider.node.layer);
+        if (otherCollider.node.layer == 1073741824) {
+                
             this._isGrounded = true;
-           // console.log('Grounded');
+             
         }
     }
 
@@ -48,7 +53,9 @@ export class GroundDetection extends Component {
         return this._isGrounded;
     }
 
-    update(dt: number) {
-        this.node.setPosition(this.GDposition);
+    update() {
+       
+        this.node.position = this.initialLocalPosition;
+       
     }
 }

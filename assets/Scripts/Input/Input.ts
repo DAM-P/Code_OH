@@ -21,6 +21,9 @@ export class PlayerInput extends Component {
     public _jumpStart: boolean = false;
 
     public _rollingStart: boolean = false;
+
+    public _actStart: boolean = false;
+
     public axis: Vec3=new Vec3();
 
 
@@ -34,7 +37,7 @@ export class PlayerInput extends Component {
 
         input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
 
-
+        
         //触屏输入
         if (this.touchArea) {
             this.touchArea.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
@@ -53,9 +56,11 @@ export class PlayerInput extends Component {
         // 设置初始的按钮事件
         this.buttonActions['ButtonA'] = () => this.onButtonAClick();
         this.buttonActions['ButtonB'] = () => this.onButtonBClick();
+        this.buttonActions['ButtonC'] = () => this.onButtonCClick();
         // this.setButtonAction('ButtonA', this.onButtonAClick);
         //  this.setButtonAction('ButtonB', this.onButtonBClick);
     }
+   
 
     start() { }
 
@@ -131,6 +136,13 @@ export class PlayerInput extends Component {
         this._rollingStart = true;
     }
 
+    private onButtonCClick() {
+        this._actStart = true;
+        this.scheduleOnce(() => {
+            this._actStart = false;
+            
+        }, 0.5);
+    }
 
     //键盘输入
 

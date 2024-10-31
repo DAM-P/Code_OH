@@ -82,6 +82,7 @@ export class PlayerController extends Component {
         
     }
     get isFalling(): boolean {
+        
         return this.rigidBody.linearVelocity.y<= 0;
     }
 

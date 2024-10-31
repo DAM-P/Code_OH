@@ -23,6 +23,7 @@ export class PlayerStateFall extends PlayerState {
         this.player.Move(this.speed);
 
         if (this.player.GroundDetect._isGrounded) {
+            
             this.stateMachine.switchStateByType(PlayerStateIdle);
         }
     }
