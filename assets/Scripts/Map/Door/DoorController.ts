@@ -4,15 +4,15 @@ const { ccclass, property } = _decorator;
 
 @ccclass('DoorController')
 export class DoorController extends Component {
-    @property({ type: [Node], tooltip: '¶ÔÓ¦µÄÃÅ¶ÔÏó' })
-    doors: Node[] = []; // ¿ØÖÆ¶à¸öÃÅ¶ÔÏó
+    @property({ type: [Node], tooltip: 'å¯¹åº”çš„é—¨å¯¹è±¡' })
+    doors: Node[] = []; // æ§åˆ¶å¤šä¸ªé—¨å¯¹è±¡
 
-    @property({ type: [Node], tooltip: '¶ÔÓ¦µÄ¿ª¹Ø¶ÔÏó' })
-    switches: Node[] = []; // ¿ØÖÆ¶à¸ö¿ª¹Ø¶ÔÏó
+    @property({ type: [Node], tooltip: 'å¯¹åº”çš„å¼€å…³å¯¹è±¡' })
+    switches: Node[] = []; // æ§åˆ¶å¤šä¸ªå¼€å…³å¯¹è±¡
 
     start() {
         if (this.switches.length !== this.doors.length) {
-            console.error('¿ª¹ØºÍÃÅµÄÊıÁ¿²»Æ¥Åä£¡');
+            console.error('å¼€å…³å’Œé—¨çš„æ•°é‡ä¸åŒ¹é…ï¼');
             return;
         }
 

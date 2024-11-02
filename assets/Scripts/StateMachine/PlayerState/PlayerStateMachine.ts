@@ -1,5 +1,5 @@
 import { _decorator, Component, Node, Animation } from 'cc';
-import { IState } from '../Base/IState'; // 导入接口
+import { IState } from '../Base/IState'; // 瀵煎叆鎺ュ彛
 import { PlayerInput } from '../../Input/Input';
 import { StateMachine } from '../Base/StateMachine'
 import { PlayerController } from '../../Player/PlayerController'

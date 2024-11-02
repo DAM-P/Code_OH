@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Collider2D, Animation } from 'cc';
+锘縤mport { _decorator, Component, Node, Collider2D, Animation } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Door')
@@ -28,7 +28,7 @@ export class Door extends Component {
             console.log('Opening door...');
             this._isOpen = true;
             this.doorCollider.enabled = false;
-           // this.doorAnimation.play('open'); // 播放打开门的动画
+           // this.doorAnimation.play('open'); // 鎾斁鎵撳紑闂ㄧ殑鍔ㄧ敾
         }
     }
 
@@ -36,9 +36,9 @@ export class Door extends Component {
         if (this._isOpen) {
             console.log('Closing door...');
             this._isOpen = false;
-            //this.doorAnimation.play('close'); // 播放关闭门的动画
+            //this.doorAnimation.play('close'); // 鎾斁鍏抽棴闂ㄧ殑鍔ㄧ敾
 
-            // 动画播放完毕后启用碰撞体
+            // 鍔ㄧ敾鎾斁瀹屾瘯鍚庡惎鐢ㄧ鎾炰綋
             //this.doorAnimation.once(Animation.EventType.FINISHED, () => {
                 this.doorCollider.enabled = true;
             //})

@@ -32,13 +32,13 @@ export class PlayerInput extends Component {
 
     onEnable() {
 
-        //¼üÅÌÊäÈë
+        //é”®ç›˜è¾“å…¥
         input.on(Input.EventType.KEY_DOWN, this.onKeyDown, this);
 
         input.on(Input.EventType.KEY_UP, this.onKeyUp, this);
 
         
-        //´¥ÆÁÊäÈë
+        //è§¦å±è¾“å…¥
         if (this.touchArea) {
             this.touchArea.on(Input.EventType.TOUCH_START, this.onTouchStart, this);
             this.touchArea.on(Input.EventType.TOUCH_MOVE, this.onTouchMove, this);
@@ -53,7 +53,7 @@ export class PlayerInput extends Component {
             }
         });
 
-        // ÉèÖÃ³õÊ¼µÄ°´Å¥ÊÂ¼ş
+        // è®¾ç½®åˆå§‹çš„æŒ‰é’®äº‹ä»¶
         this.buttonActions['ButtonA'] = () => this.onButtonAClick();
         this.buttonActions['ButtonB'] = () => this.onButtonBClick();
         this.buttonActions['ButtonC'] = () => this.onButtonCClick();
@@ -101,7 +101,7 @@ export class PlayerInput extends Component {
 
     private setJoystick(localPos: Vec3) {
         const delta = localPos.subtract(this.joystickBg.position);
-        const distance = Math.min(delta.length(), this.joystickBg.getComponent(UITransform).width / 2); // ÏŞÖÆÊÖ±úÒÆ¶¯·¶Î§
+        const distance = Math.min(delta.length(), this.joystickBg.getComponent(UITransform).width / 2); // é™åˆ¶æ‰‹æŸ„ç§»åŠ¨èŒƒå›´
         const direction = delta.normalize();
         this.axis = direction;
         this.joystickHandle.setPosition(direction.x * distance, direction.y * distance);
@@ -109,7 +109,7 @@ export class PlayerInput extends Component {
 
     private onTouchEnd() {
         this.axis = new Vec3();
-        this.joystickHandle.setPosition(new Vec3(0, 0, 0)); // ÖØÖÃÊÖ±úÎ»ÖÃ
+        this.joystickHandle.setPosition(new Vec3(0, 0, 0)); // é‡ç½®æ‰‹æŸ„ä½ç½®
         this._touchStart = false;
     }
 
@@ -144,7 +144,7 @@ export class PlayerInput extends Component {
         }, 0.5);
     }
 
-    //¼üÅÌÊäÈë
+    //é”®ç›˜è¾“å…¥
 
     private onKeyDown(event: EventKeyboard) {
         let direction = new Vec3();

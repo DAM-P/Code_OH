@@ -14,7 +14,7 @@ export class PlayerStateRun extends PlayerState {
     public acceleration: number = 0;
 
     @property
-    public audioClass: any = null; // ¼ÙÉè audioClass ÔÚ Cocos ÖĞÒÑ¶¨Òå
+    public audioClass: any = null; // å‡è®¾ audioClass åœ¨ Cocos ä¸­å·²å®šä¹‰
 
     public Enter() {
         super.Enter();

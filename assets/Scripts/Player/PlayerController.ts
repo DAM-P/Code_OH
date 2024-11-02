@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Vec2, Vec3, Input, EventKeyboard, input, KeyCode,RigidBody2D, sp } from 'cc';
+ï»¿import { _decorator, Component, Node, Vec2, Vec3, Input, EventKeyboard, input, KeyCode,RigidBody2D, sp } from 'cc';
 import { PlayerInput } from '../Input/Input';
 import { GroundDetection} from './GroundDetection'
 const { ccclass, property } = _decorator;
@@ -27,10 +27,10 @@ export class PlayerController extends Component {
     }
      public setVelocityX(dir: number) {
         if (this.rigidBody&&dir!=null) {
-            // »ñÈ¡µ±Ç°¸ÕÌåËÙ¶È
+            // è·å–å½“å‰åˆšä½“é€Ÿåº¦
             let velocity = this.rigidBody.linearVelocity;
            
-            // ÉèÖÃĞÂËÙ¶È£¬±£³Ö y ÖáËÙ¶È²»±ä£¬Ö»¸Ä±ä x ÖáËÙ¶È
+            // è®¾ç½®æ–°é€Ÿåº¦ï¼Œä¿æŒ y è½´é€Ÿåº¦ä¸å˜ï¼Œåªæ”¹å˜ x è½´é€Ÿåº¦
             velocity.x = dir;
             
             this.rigidBody.linearVelocity = velocity;
@@ -40,10 +40,10 @@ export class PlayerController extends Component {
     }
     public setVelocityY(dir: number) {
         if (this.rigidBody && dir != null) {
-            // »ñÈ¡µ±Ç°¸ÕÌåËÙ¶È
+            // è·å–å½“å‰åˆšä½“é€Ÿåº¦
             let velocity = this.rigidBody.linearVelocity;
 
-            // ÉèÖÃĞÂËÙ¶È£¬±£³Ö y ÖáËÙ¶È²»±ä£¬Ö»¸Ä±ä x ÖáËÙ¶È
+            // è®¾ç½®æ–°é€Ÿåº¦ï¼Œä¿æŒ y è½´é€Ÿåº¦ä¸å˜ï¼Œåªæ”¹å˜ x è½´é€Ÿåº¦
             velocity.y = dir;
 
             //console.log(velocity);

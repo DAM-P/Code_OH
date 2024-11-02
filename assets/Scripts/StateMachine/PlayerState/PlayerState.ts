@@ -28,7 +28,7 @@ export class PlayerState extends Component implements IState {
     }
 
     onLoad() {
-        
+
     }
 
     public Initialize(animator: Animation, stateMachine: PlayerStateMachine, input: PlayerInput, player: PlayerController) {
@@ -48,6 +48,6 @@ export class PlayerState extends Component implements IState {
 
     public Exit() { }
 
-    public LogicUpdate(dt:number) { }
+    public LogicUpdate(dt: number) { }
 
 }

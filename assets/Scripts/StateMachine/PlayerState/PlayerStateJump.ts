@@ -1,5 +1,5 @@
 import { _decorator, Component, Animation, Vec3, log, debug, sp } from 'cc';
-// 导入接口
+// 瀵煎叆鎺ュ彛
 import { PlayerState } from './PlayerState'
 import { PlayerStateIdle } from './PlayerStateIdle'
 import { PlayerStateFall } from './PlayerStateFall';

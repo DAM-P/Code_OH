@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Collider2D, Contact2DType, IPhysics2DContact, Layers, Vec3 } from 'cc';
+ï»¿import { _decorator, Component, Node, Collider2D, Contact2DType, IPhysics2DContact, Layers, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('GroundDetection')
@@ -9,7 +9,7 @@ export class GroundDetection extends Component {
     private initialLocalPosition: Vec3 = new Vec3();
 
     start() {
-        // ¼ÇÂ¼³õÊ¼µÄ±¾µØÎ»ÖÃ
+        // è®°å½•åˆå§‹çš„æœ¬åœ°ä½ç½®
         this.initialLocalPosition.set(this.node.getPosition());
     }
 
