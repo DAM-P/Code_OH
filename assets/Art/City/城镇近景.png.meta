@@ -1,0 +1,134 @@
+{
+  "ver": "1.0.27",
+  "importer": "image",
+  "imported": true,
+  "uuid": "197f43e4-308c-466d-9e04-fb1449308a11",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "197f43e4-308c-466d-9e04-fb1449308a11@6c48a",
+      "displayName": "城镇近景",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "clamp-to-edge",
+        "wrapModeT": "clamp-to-edge",
+        "imageUuidOrDatabaseUri": "197f43e4-308c-466d-9e04-fb1449308a11",
+        "isUuid": true,
+        "visible": false,
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f9941": {
+      "importer": "sprite-frame",
+      "uuid": "197f43e4-308c-466d-9e04-fb1449308a11@f9941",
+      "displayName": "城镇近景",
+      "id": "f9941",
+      "name": "spriteFrame",
+      "userData": {
+        "trimType": "auto",
+        "trimThreshold": 1,
+        "rotated": false,
+        "offsetX": -2,
+        "offsetY": -43,
+        "trimX": 0,
+        "trimY": 153,
+        "width": 988,
+        "height": 316,
+        "rawWidth": 992,
+        "rawHeight": 536,
+        "borderTop": 0,
+        "borderBottom": 0,
+        "borderLeft": 0,
+        "borderRight": 0,
+        "packable": true,
+        "pixelsToUnit": 100,
+        "pivotX": 0.5,
+        "pivotY": 0.5,
+        "meshType": 0,
+        "vertices": {
+          "rawPosition": [
+            -494,
+            -158,
+            0,
+            494,
+            -158,
+            0,
+            -494,
+            158,
+            0,
+            494,
+            158,
+            0
+          ],
+          "indexes": [
+            0,
+            1,
+            2,
+            2,
+            1,
+            3
+          ],
+          "uv": [
+            0,
+            383,
+            988,
+            383,
+            0,
+            67,
+            988,
+            67
+          ],
+          "nuv": [
+            0,
+            0.125,
+            0.9959677419354839,
+            0.125,
+            0,
+            0.7145522388059702,
+            0.9959677419354839,
+            0.7145522388059702
+          ],
+          "minPos": [
+            -494,
+            -158,
+            0
+          ],
+          "maxPos": [
+            494,
+            158,
+            0
+          ]
+        },
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "197f43e4-308c-466d-9e04-fb1449308a11@6c48a",
+        "atlasUuid": ""
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "type": "sprite-frame",
+    "hasAlpha": true,
+    "fixAlphaTransparencyArtifacts": false,
+    "redirect": "197f43e4-308c-466d-9e04-fb1449308a11@6c48a"
+  }
+}
