@@ -1,5 +1,5 @@
 import { _decorator, Component, Animation, log } from 'cc';
-import { IState } from '../Base/IState'; // µ¼Èë½Ó¿Ú
+import { IState } from '../Base/IState'; // ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
 import { PlayerInput } from '../../Input/Input';
 import { PlayerStateMachine } from './PlayerStateMachine'
 import { PlayerController } from '../../Player/PlayerController'
@@ -24,7 +24,7 @@ export class PlayerState extends Component implements IState {
     }
 
     protected get stateTime(): number {
-        return Date.now() - this.stateStartTime;//ºÁÃëÊý
+        return Date.now() - this.stateStartTime;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     onLoad() {
