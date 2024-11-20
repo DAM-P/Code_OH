@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, SpriteFrame, SpriteRenderer } from 'cc';
+import { _decorator, Component, Label, Node, SpriteFrame, SpriteRenderer } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Item')
@@ -27,5 +27,6 @@ export class Item extends Component {
     }
     protected start(): void {
         this.node.getComponent(SpriteRenderer).spriteFrame = this.itemIcon;
+        this.node.getComponentsInChildren(Label)[0].string = this.itemDescription;
     }
 }
