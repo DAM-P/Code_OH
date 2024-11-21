@@ -1,7 +1,7 @@
-import { _decorator, Component, director, Node } from 'cc';
+import { _decorator, Component, director, log, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
-@ccclass('GlobalSinglton')
+@ccclass('GlobalSingleton')
 export class GlobalSingleton extends Component {
     private static _instance: GlobalSingleton = null;
 
@@ -15,15 +15,21 @@ export class GlobalSingleton extends Component {
 
     // 获取单例实例的方法
     public static getInstance(): GlobalSingleton {
-        if (!this._instance) {
-            // 创建并初始化实例
-            this._instance = new GlobalSingleton();
-            director.addPersistRootNode(this._instance.node);
-        }
         return this._instance;
+    }
+
+    onEnable() {
+        if (!GlobalSingleton._instance) {
+            GlobalSingleton._instance = this;
+            director.addPersistRootNode(this.node);
+        } else {
+            // 如果已经有实例，则销毁当前实例的节点
+            this.node.destroy();
+     
+     
+        }
+        log('GlobalSingleton onEnable');
     }
 
 
 }
-
-

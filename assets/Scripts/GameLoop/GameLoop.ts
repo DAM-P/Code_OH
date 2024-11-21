@@ -1,4 +1,4 @@
-import { _decorator, director, Component, Node } from 'cc';
+import { _decorator, director, Component, Node, log } from 'cc';
 import { GlobalSingleton } from '../UI/GlobalSingleton';
 const { ccclass, property } = _decorator;
 
@@ -9,6 +9,7 @@ export class GameLoop extends GlobalSingleton {
     // 获取单例实例
     public static getInstance(): GameLoop {
         return <GameLoop>super.getInstance(); // 使用父类的 getInstance 方法
+
     }
 
     // 暂停游戏
@@ -33,8 +34,14 @@ export class GameLoop extends GlobalSingleton {
     // 游戏主循环
     protected update(dt: number) {
         if (!this._isPaused) {
-         
         }
+    }
+    // 退出游戏
+    public quitGame() {
+        director.end();
+    }
+    public backToMenu() {
+        log('返回主菜单');
     }
 }
 

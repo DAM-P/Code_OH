@@ -4,6 +4,8 @@ const { ccclass, property } = _decorator;
 
 @ccclass('InventoryManager')
 export class InventoryManager extends Component {
+    @property([Prefab])
+    prefabs: Array<Node> = [];
     @property([Item])
     items: Item[] = [];
 
