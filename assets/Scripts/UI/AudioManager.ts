@@ -5,12 +5,13 @@ const { ccclass, property } = _decorator;
 @ccclass('AudioManager')
 export class AudioManager extends GlobalSingleton {
 
+    ctrl: boolean = false;
     public static getInstance(): AudioManager {
         return <AudioManager>super.getInstance();
     }
     @property(AudioSource)
     audiosource: AudioSource = null; // 背景音乐音频剪辑
-    
+
     @property(Number)
     private volume: number = 0.5; // 默认音量
 
@@ -23,7 +24,8 @@ export class AudioManager extends GlobalSingleton {
     }
 
     start(): void {
-        this.init();
+        if (this.ctrl == true) { this.init(); }
+
         this.audiosource = this.node.getComponent(AudioSource);
         this.audiosource.playOnAwake = true;
         resources.load('Audio/bgm', AudioClip, (err, audio) => {
@@ -43,7 +45,7 @@ export class AudioManager extends GlobalSingleton {
     // 停止背景音乐
     public stopBGM() {
         this.audiosource.stop();
-    }   
+    }
 
     // 初始化音量设置
     public init() {
